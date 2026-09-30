@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <title>Student Records | Assignment 3</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="workspace">
+      <header class="page-header">
+        <div class="identity">
+          <p class="eyebrow">INFO 6150 · ASSIGNMENT 03</p>
+          <h1>Student records</h1>
+          <div class="identity__details">
+            <span class="identity__name">Kartik Mane</span>
+            <span class="identity__divider" aria-hidden="true"></span>
+            <label class="identity__nuid" for="nuid-input">
+              NUID
+              <input id="nuid-input" name="nuid" type="text" placeholder="Enter your NUID" autocomplete="off">
+            </label>
+          </div>
+        </div>
+        <button class="button button--add" id="add-student" type="button">
+          <span aria-hidden="true">+</span>
+          Add new student
+        </button>
+      </header>
+
+      <section class="records" aria-labelledby="records-title">
+        <div class="records__heading">
+          <div>
+            <p class="eyebrow">DIRECTORY</p>
+            <h2 id="records-title">Enrolled students</h2>
+          </div>
+          <p class="records__count"><span id="record-count">3</span> records</p>
+        </div>
+
+        <div class="table-frame">
+          <table>
+            <caption class="visually-hidden">Student and teacher directory</caption>
+            <thead>
+              <tr>
+                <th class="expand-column" scope="col"><span class="visually-hidden">Details</span></th>
+                <th class="select-column" scope="col"><span class="visually-hidden">Select</span></th>
+                <th scope="col">Student</th>
+                <th scope="col">Assigned teacher</th>
+                <th class="email-column" scope="col">Email</th>
+                <th class="action-column" scope="col">Delete</th>
+                <th class="action-column" scope="col">Edit</th>
+              </tr>
+            </thead>
+            <tbody id="student-rows"></tbody>
+          </table>
+        </div>
+
+        <footer class="table-footer">
+          <span class="table-footer__note"><span class="status-dot" aria-hidden="true"></span> Directory is up to date</span>
+          <button class="button button--submit" id="submit-selected" type="button" disabled>Submit selected</button>
+        </footer>
+      </section>
+      <p class="page-footer">Student Services <span aria-hidden="true">/</span> Records desk</p>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <div class="dialog-backdrop" id="edit-dialog" hidden>
+      <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+        <p class="eyebrow">STUDENT RECORD</p>
+        <h2 id="dialog-title">Edit details</h2>
+        <label class="dialog__label" for="edit-value">Updated details</label>
+        <input id="edit-value" class="dialog__input" type="text" autocomplete="off">
+        <p class="dialog__error" id="dialog-error" hidden>Please enter a value to continue.</p>
+        <div class="dialog__actions">
+          <button class="button button--quiet" id="cancel-edit" type="button">Cancel</button>
+          <button class="button button--confirm" id="confirm-edit" type="button">OK</button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
