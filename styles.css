@@ -327,7 +327,7 @@ tbody tr:last-child td {
 
 .detail-row td {
   height: auto;
-  padding: 0 24px 15px 92px;
+  padding: 10px 24px 10px 62px;
   background: #fbfcf9;
   color: #606a5f;
   font-size: 11px;
