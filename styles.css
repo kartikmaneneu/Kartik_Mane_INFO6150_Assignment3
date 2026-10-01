@@ -503,6 +503,10 @@ tbody tr:last-child td {
   clip-path: inset(50%);
 }
 
+#nuid-display{
+  margin: 0;
+}
+
 @keyframes arrive {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
