@@ -1,8 +1,7 @@
-const records = [1, 2, 3].map((number) => createRecord(number));
+const records = [1].map((number) => createRecord(number));
 const rowsElement = document.querySelector('#student-rows');
 const countElement = document.querySelector('#record-count');
 const submitButton = document.querySelector('#submit-selected');
-const nuidInput = document.querySelector('#nuid-input');
 const toast = document.querySelector('#toast');
 const editDialog = document.querySelector('#edit-dialog');
 const editTitle = document.querySelector('#dialog-title');
@@ -160,14 +159,5 @@ editDialog.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && !editDialog.hidden) closeEditDialog();
 });
-
-try {
-  nuidInput.value = localStorage.getItem('assignment3-nuid') || '';
-  nuidInput.addEventListener('input', () => {
-    localStorage.setItem('assignment3-nuid', nuidInput.value.trim());
-  });
-} catch {
-  nuidInput.placeholder = 'Enter your NUID';
-}
 
 renderRecords();
